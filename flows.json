@@ -1,32 +1,30 @@
 [
     {
-        "id": "a033ecf7.19ef2",
+        "id": "947a0edef36b62a9",
         "type": "tab",
-        "label": "Publisher",
+        "label": "Set GeoIP ",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "d50d4fe4528fdecf",
+        "type": "tab",
+        "label": "Latency",
         "disabled": false,
         "info": "",
         "env": []
     },
     {
-        "id": "91dfc3f3f10d7fc3",
+        "id": "d4c99f8432f4320d",
         "type": "tab",
-        "label": "Update Geo Information",
+        "label": "Client State",
         "disabled": false,
-        "info": "",
-        "env": []
+        "info": ""
     },
     {
-        "id": "a4f2e7336814a302",
+        "id": "d85318c42f0bd96a",
         "type": "tab",
-        "label": "Subscriber",
-        "disabled": false,
-        "info": "",
-        "env": []
-    },
-    {
-        "id": "af1e13a2798b2101",
-        "type": "tab",
-        "label": "reporter",
+        "label": "Location Service",
         "disabled": false,
         "info": "",
         "env": []
@@ -35,7 +33,7 @@
         "id": "3c9fafa.7dd6a5",
         "type": "mqtt-broker",
         "name": "",
-        "broker": "demo.mqtttest.com",
+        "broker": "demo-in.mqtttest.com",
         "port": "8883",
         "tls": "2d748829.2503d8",
         "clientid": "$(CLIENTID)",
@@ -44,18 +42,18 @@
         "compatmode": false,
         "protocolVersion": "4",
         "keepalive": "60",
-        "cleansession": true,
-        "birthTopic": "demo/security/clientstate/connected",
+        "cleansession": false,
+        "birthTopic": "demo/phonepe/clientstate/connected",
         "birthQos": "0",
         "birthRetain": "false",
         "birthPayload": "$(CLIENTID)",
         "birthMsg": {},
-        "closeTopic": "demo/security/clientstate/closed",
+        "closeTopic": "demo/phonepe/clientstate/closed",
         "closeQos": "0",
         "closeRetain": "false",
         "closePayload": "$(CLIENTID)",
         "closeMsg": {},
-        "willTopic": "demo/security/clientstate/lastwill",
+        "willTopic": "demo/phonepe/clientstate/lastwill",
         "willQos": "0",
         "willRetain": "false",
         "willPayload": "$(CLIENTID)",
@@ -65,19 +63,19 @@
     {
         "id": "2d748829.2503d8",
         "type": "tls-config",
-        "name": "demo.mqtttest.com",
+        "name": "demo-in.mqtttest.com",
         "cert": "",
         "key": "",
         "ca": "",
         "certname": "",
         "keyname": "",
         "caname": "",
-        "servername": "demo.mqtttest.com",
+        "servername": "demo-in.mqtttest.com",
         "verifyservercert": false,
         "alpnprotocol": ""
     },
     {
-        "id": "cb2f7c9a2ceaaf2c",
+        "id": "c7809b33.ca4548",
         "type": "ui_tab",
         "name": "Home",
         "icon": "dashboard",
@@ -85,7 +83,7 @@
         "hidden": false
     },
     {
-        "id": "6230bf36a9b3038f",
+        "id": "cb978cdcbb341010",
         "type": "ui_base",
         "theme": {
             "name": "theme-light",
@@ -182,101 +180,241 @@
         }
     },
     {
-        "id": "54f7ecc644f21e27",
+        "id": "fde17ba4e8f07cec",
+        "type": "gauth",
+        "name": "node-red@fluted-sentry-260301.iam.gserviceaccount.com"
+    },
+    {
+        "id": "a4089a2e.e45d68",
+        "type": "tls-config",
+        "name": "demo-na.mqtttest.com",
+        "cert": "",
+        "key": "",
+        "ca": "",
+        "certname": "",
+        "keyname": "",
+        "caname": "",
+        "servername": "demo-na.mqtttest.com",
+        "verifyservercert": true
+    },
+    {
+        "id": "a06ddef.76e0f2",
+        "type": "ui_tab",
+        "name": "Latency",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "26f4d1165fd20bba",
         "type": "ui_group",
-        "name": "Home",
-        "tab": "cb2f7c9a2ceaaf2c",
+        "name": "Security Masters Demo",
+        "tab": "ca67bd7dfaad900f",
         "order": 1,
         "disp": true,
+        "width": "20",
+        "collapse": false
+    },
+    {
+        "id": "ca67bd7dfaad900f",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "80bef3743ca28f1f",
+        "type": "ui_group",
+        "name": "Security Masters Demo",
+        "tab": "d5759354530745c7",
+        "order": 1,
+        "disp": true,
+        "width": "20",
+        "collapse": false
+    },
+    {
+        "id": "d5759354530745c7",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "54e197d8.7f7fe8",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "81fc7724bb1fd349",
+        "type": "tls-config",
+        "name": "",
+        "cert": "",
+        "key": "",
+        "ca": "",
+        "certname": "",
+        "keyname": "",
+        "caname": "",
+        "servername": "",
+        "verifyservercert": true
+    },
+    {
+        "id": "d328eaed2d818008",
+        "type": "tls-config",
+        "name": "",
+        "cert": "",
+        "key": "",
+        "ca": "",
+        "certname": "",
+        "keyname": "",
+        "caname": "",
+        "servername": "api.ipify.org",
+        "verifyservercert": false
+    },
+    {
+        "id": "2f351a87b59f115a",
+        "type": "tls-config",
+        "name": "demo-na.mqtttest.com",
+        "cert": "",
+        "key": "",
+        "ca": "",
+        "certname": "",
+        "keyname": "",
+        "caname": "",
+        "servername": "demo-na.mqtttest.com",
+        "verifyservercert": false
+    },
+    {
+        "id": "e4eabf1d7cbac13c",
+        "type": "gauth"
+    },
+    {
+        "id": "7ff7b2e0594f946c",
+        "type": "gauth"
+    },
+    {
+        "id": "86a017a36036cd51",
+        "type": "gauth"
+    },
+    {
+        "id": "ca6ef322ad7c2325",
+        "type": "ui_group",
+        "name": "Security Masters Demo",
+        "tab": "c7809b33.ca4548",
+        "order": 1,
+        "disp": true,
+        "width": "20",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "38f957767413f424",
+        "type": "ui_group",
+        "name": "Latency",
+        "tab": "a06ddef.76e0f2",
+        "order": 1,
+        "disp": false,
         "width": "18",
         "collapse": false
     },
     {
-        "id": "9ec996f76bea83f4",
-        "type": "mqtt out",
-        "z": "a033ecf7.19ef2",
+        "id": "85ffacbf904db61d",
+        "type": "ui_group",
+        "name": "Security Masters Demo",
+        "tab": "5bbbfc930baf97d5",
+        "order": 1,
+        "disp": true,
+        "width": "20",
+        "collapse": false
+    },
+    {
+        "id": "5bbbfc930baf97d5",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "3b9b4975b762caaf",
+        "type": "mqtt-broker",
         "name": "",
-        "topic": "demo/sky/service/update",
-        "qos": "0",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "3c9fafa.7dd6a5",
-        "x": 430,
-        "y": 480,
-        "wires": []
+        "broker": "demo.mqtttest.com",
+        "port": "8883",
+        "tls": "353bb6547d30ac52",
+        "clientid": "otademo",
+        "usetls": true,
+        "compatmode": false,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
     },
     {
-        "id": "b241657ecd94e4d5",
-        "type": "function",
-        "z": "a033ecf7.19ef2",
-        "name": "Add current epoch timestamp ",
-        "func": "msg.payload.time = Date.now() \nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 430,
-        "y": 420,
-        "wires": [
-            [
-                "9ec996f76bea83f4"
-            ]
-        ]
+        "id": "b039f0e61c731c39",
+        "type": "ui_group",
+        "name": "Client State Table",
+        "tab": "c7809b33.ca4548",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
     },
     {
-        "id": "c3c65a1122f9097c",
-        "type": "template",
-        "z": "a033ecf7.19ef2",
-        "name": "Extract Geo and Org info from global variables",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "handlebars",
-        "syntax": "mustache",
-        "template": "{\"publishregion\":\"{{global.regionName}}\",\"publishcountry\":\"{{global.countryCode}}\",\"publishorg\":\"{{global.org}}\"}",
-        "output": "json",
-        "x": 460,
-        "y": 360,
-        "wires": [
-            [
-                "b241657ecd94e4d5"
-            ]
-        ]
+        "id": "353bb6547d30ac52",
+        "type": "tls-config",
+        "name": "demo.mqtttest.com",
+        "cert": "",
+        "key": "",
+        "ca": "",
+        "certname": "",
+        "keyname": "",
+        "caname": "",
+        "servername": "demo.mqtttest.com",
+        "verifyservercert": true
     },
     {
-        "id": "4762d38c46b7cd97",
-        "type": "inject",
-        "z": "a033ecf7.19ef2",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 280,
-        "y": 240,
-        "wires": [
-            [
-                "c3c65a1122f9097c"
-            ]
-        ]
+        "id": "7c2b4036fb692de4",
+        "type": "gauth",
+        "name": "hay-ocr@hay-ocr.iam.gserviceaccount.com"
     },
     {
-        "id": "0cec541ef6e031b1",
+        "id": "02d8fbe38790357d",
+        "type": "ui_group",
+        "name": "Client State Table",
+        "tab": "c7809b33.ca4548",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "13706161fd4d8ae4",
+        "type": "ui_group",
+        "name": "Worldmap",
+        "tab": "c7809b33.ca4548",
+        "order": 4,
+        "disp": true,
+        "width": "20",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "bde56a9cf1a45bfe",
         "type": "http request",
-        "z": "91dfc3f3f10d7fc3",
+        "z": "947a0edef36b62a9",
         "name": "Lookup public IP address",
         "method": "GET",
         "ret": "txt",
@@ -286,19 +424,18 @@
         "persist": false,
         "proxy": "",
         "authType": "",
-        "senderr": false,
-        "x": 510,
-        "y": 260,
+        "x": 210,
+        "y": 140,
         "wires": [
             [
-                "b637f7220dac651c"
+                "d69cc6b3304e4b61"
             ]
         ]
     },
     {
-        "id": "b637f7220dac651c",
+        "id": "d69cc6b3304e4b61",
         "type": "template",
-        "z": "91dfc3f3f10d7fc3",
+        "z": "947a0edef36b62a9",
         "name": "Format GeoIP Lookup",
         "field": "url",
         "fieldType": "msg",
@@ -306,18 +443,18 @@
         "syntax": "mustache",
         "template": "http://ip-api.com/json/{{payload}}",
         "output": "str",
-        "x": 500,
-        "y": 300,
+        "x": 200,
+        "y": 180,
         "wires": [
             [
-                "8306208916e268ad"
+                "ed294e8b96cee74f"
             ]
         ]
     },
     {
-        "id": "8306208916e268ad",
+        "id": "ed294e8b96cee74f",
         "type": "http request",
-        "z": "91dfc3f3f10d7fc3",
+        "z": "947a0edef36b62a9",
         "name": "GeoIP Lookup",
         "method": "GET",
         "ret": "obj",
@@ -327,19 +464,18 @@
         "persist": false,
         "proxy": "",
         "authType": "",
-        "senderr": false,
-        "x": 480,
-        "y": 340,
+        "x": 180,
+        "y": 220,
         "wires": [
             [
-                "456f6c80b80c1b93"
+                "b06e2b3aec47d28c"
             ]
         ]
     },
     {
-        "id": "456f6c80b80c1b93",
+        "id": "b06e2b3aec47d28c",
         "type": "change",
-        "z": "91dfc3f3f10d7fc3",
+        "z": "947a0edef36b62a9",
         "name": "Set Global Variables ",
         "rules": [
             {
@@ -369,16 +505,16 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 500,
-        "y": 380,
+        "x": 200,
+        "y": 260,
         "wires": [
             []
         ]
     },
     {
-        "id": "524613bfa505fb5b",
+        "id": "73e8aecdc7fae88b",
         "type": "inject",
-        "z": "91dfc3f3f10d7fc3",
+        "z": "947a0edef36b62a9",
         "name": "",
         "props": [
             {
@@ -389,108 +525,80 @@
                 "vt": "str"
             }
         ],
-        "repeat": "60",
+        "repeat": "",
         "crontab": "",
         "once": true,
         "onceDelay": 0.1,
         "topic": "",
         "payloadType": "date",
-        "x": 480,
-        "y": 200,
+        "x": 180,
+        "y": 80,
         "wires": [
             [
-                "0cec541ef6e031b1"
+                "bde56a9cf1a45bfe"
             ]
         ]
     },
     {
-        "id": "51ca4744ae568901",
-        "type": "mqtt in",
-        "z": "a4f2e7336814a302",
-        "name": "",
-        "topic": "demo/sky/service/update",
-        "qos": "2",
-        "datatype": "json",
-        "broker": "3c9fafa.7dd6a5",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 230,
-        "y": 140,
+        "id": "ee9b8bd2e9d41231",
+        "type": "mgrs",
+        "z": "947a0edef36b62a9",
+        "name": "Convert Lat/Lon to MGRS",
+        "precision": "5",
+        "x": 570,
+        "y": 320,
         "wires": [
             [
-                "2b614b4690cd74cb"
+                "1add6033320d43fe"
             ]
         ]
     },
     {
-        "id": "2b614b4690cd74cb",
-        "type": "function",
-        "z": "a4f2e7336814a302",
-        "name": "calculate latency",
-        "func": "var now = Date.now();\nvar then = msg.payload.time;\nmsg.payload.latency = now - then;\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 350,
-        "y": 200,
-        "wires": [
-            [
-                "4054b25f.85648c"
-            ]
-        ]
-    },
-    {
-        "id": "4054b25f.85648c",
-        "type": "change",
-        "z": "a4f2e7336814a302",
-        "name": "Extract Geo Location from Global Variables",
-        "rules": [
+        "id": "37d717a1ed0e883a",
+        "type": "inject",
+        "z": "d50d4fe4528fdecf",
+        "name": "Inject epoch time every 1 second",
+        "props": [
             {
-                "t": "set",
-                "p": "payload.regionName",
-                "pt": "msg",
-                "to": "regionName",
-                "tot": "global"
+                "p": "payload.timestamp",
+                "v": "",
+                "vt": "date"
             },
             {
-                "t": "set",
-                "p": "payload.countryCode",
-                "pt": "msg",
-                "to": "countryCode",
-                "tot": "global"
-            },
-            {
-                "t": "set",
-                "p": "payload.org",
-                "pt": "msg",
-                "to": "org",
-                "tot": "global"
+                "p": "topic",
+                "vt": "str"
             }
         ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 350,
-        "y": 260,
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 220,
+        "y": 200,
         "wires": [
             [
-                "5b176287c336a3f9"
+                "ebc792718eed870f"
             ]
         ]
     },
     {
-        "id": "5b176287c336a3f9",
+        "id": "32a954abef2980fb",
+        "type": "comment",
+        "z": "d50d4fe4528fdecf",
+        "name": "Publish message with current time",
+        "info": "",
+        "x": 220,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "706a6d06ca11309d",
         "type": "mqtt out",
-        "z": "a4f2e7336814a302",
-        "name": "",
-        "topic": "demo/sky/service/latency",
-        "qos": "1",
+        "z": "d50d4fe4528fdecf",
+        "name": "Publish latency test message to MQTT",
+        "topic": "demo/sie/latency/messages",
+        "qos": "",
         "retain": "",
         "respTopic": "",
         "contentType": "",
@@ -498,17 +606,95 @@
         "correl": "",
         "expiry": "",
         "broker": "3c9fafa.7dd6a5",
-        "x": 380,
-        "y": 320,
+        "x": 710,
+        "y": 280,
         "wires": []
     },
     {
-        "id": "14d64fb78f7bc949",
+        "id": "f5258c47fab3b989",
+        "type": "comment",
+        "z": "d50d4fe4528fdecf",
+        "name": "Receive Test Messages and Measure Latency",
+        "info": "",
+        "x": 250,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "df5041890d604878",
         "type": "mqtt in",
-        "z": "af1e13a2798b2101",
-        "d": true,
-        "name": "",
-        "topic": "demo/sky/service/latency",
+        "z": "d50d4fe4528fdecf",
+        "name": "Subscribe to Latency Test Messages via MQTT",
+        "topic": "demo/sie/latency/messages",
+        "qos": "2",
+        "datatype": "json",
+        "broker": "3c9fafa.7dd6a5",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 260,
+        "y": 360,
+        "wires": [
+            [
+                "ed7ed5b91fb67d9c"
+            ]
+        ]
+    },
+    {
+        "id": "ed7ed5b91fb67d9c",
+        "type": "function",
+        "z": "d50d4fe4528fdecf",
+        "name": "Measure Publish-Subscribe Latency of message",
+        "func": "var now = Date.now();\nvar then = msg.payload.timestamp;\nmsg.payload.latency = now - then;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 420,
+        "wires": [
+            [
+                "7bb90d58018bc43e",
+                "86df152621d322b2"
+            ]
+        ]
+    },
+    {
+        "id": "99639455cbc3b12b",
+        "type": "mqtt out",
+        "z": "d50d4fe4528fdecf",
+        "name": "Publish Latency Results to MQTT",
+        "topic": "demo/sie/latency/results",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3c9fafa.7dd6a5",
+        "x": 220,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "bd0e7de22b1a0ffe",
+        "type": "comment",
+        "z": "d50d4fe4528fdecf",
+        "name": "Listen and Graph Results",
+        "info": "",
+        "x": 190,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "e5ebae39fd21b917",
+        "type": "mqtt in",
+        "z": "d50d4fe4528fdecf",
+        "name": "Listen for Latency Result messages",
+        "topic": "demo/sie/latency/results",
         "qos": "2",
         "datatype": "json",
         "broker": "3c9fafa.7dd6a5",
@@ -517,18 +703,165 @@
         "rh": 0,
         "inputs": 0,
         "x": 220,
-        "y": 140,
+        "y": 620,
         "wires": [
             [
-                "95b4a32e3a172f4d",
-                "6f412825bfd47442"
+                "844d1b322f7978c6"
             ]
         ]
     },
     {
-        "id": "95b4a32e3a172f4d",
+        "id": "8f2d9753580b8c86",
+        "type": "ui_chart",
+        "z": "d50d4fe4528fdecf",
+        "name": "Graph Latency Results",
+        "group": "38f957767413f424",
+        "order": 0,
+        "width": "18",
+        "height": "10",
+        "label": "Publish/Subscribe Latency",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "1000",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 180,
+        "y": 800,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ebc792718eed870f",
+        "type": "change",
+        "z": "d50d4fe4528fdecf",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.publisher.countryCode",
+                "pt": "msg",
+                "to": "countryCode",
+                "tot": "global",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "payload.publisher.org",
+                "pt": "msg",
+                "to": "org",
+                "tot": "global",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "payload.publisher.regionName",
+                "pt": "msg",
+                "to": "regionName",
+                "tot": "global",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 500,
+        "y": 200,
+        "wires": [
+            [
+                "706a6d06ca11309d"
+            ]
+        ]
+    },
+    {
+        "id": "7bb90d58018bc43e",
         "type": "debug",
-        "z": "af1e13a2798b2101",
+        "z": "d50d4fe4528fdecf",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 550,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "86df152621d322b2",
+        "type": "change",
+        "z": "d50d4fe4528fdecf",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.subscriber.countryCode",
+                "pt": "msg",
+                "to": "countryCode",
+                "tot": "global",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "payload.subscriber.org",
+                "pt": "msg",
+                "to": "org",
+                "tot": "global",
+                "dc": true
+            },
+            {
+                "t": "set",
+                "p": "payload.subscriber.regionName",
+                "pt": "msg",
+                "to": "regionName",
+                "tot": "global",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 220,
+        "y": 480,
+        "wires": [
+            [
+                "99639455cbc3b12b"
+            ]
+        ]
+    },
+    {
+        "id": "82f6584b743f9f50",
+        "type": "debug",
+        "z": "d50d4fe4528fdecf",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -538,48 +871,34 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 560,
-        "y": 140,
+        "x": 550,
+        "y": 600,
         "wires": []
     },
     {
-        "id": "6f412825bfd47442",
+        "id": "844d1b322f7978c6",
         "type": "template",
-        "z": "af1e13a2798b2101",
-        "name": "Sort Messages by Country ",
+        "z": "d50d4fe4528fdecf",
+        "name": "Change Topic to Publish/Subscribe locations",
         "field": "topic",
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "{{payload.countryCode}}",
+        "template": "From: {{payload.publisher.org}} - {{payload.publisher.countryCode}} - {{payload.publisher.regionName}} To: {{payload.subscriber.org}} - {{payload.subscriber.countryCode}} - {{payload.subscriber.regionName}} ",
         "output": "str",
-        "x": 420,
-        "y": 280,
+        "x": 250,
+        "y": 680,
         "wires": [
             [
-                "5e04e0a0669ad8d6",
-                "510b2c8bf11781b6"
+                "e408707a82715488"
             ]
         ]
     },
     {
-        "id": "125449c3b7842986",
-        "type": "moving-average",
-        "z": "af1e13a2798b2101",
-        "name": "",
-        "amount": "1000",
-        "weight": "cumulative",
-        "x": 840,
-        "y": 400,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "5e04e0a0669ad8d6",
+        "id": "e408707a82715488",
         "type": "change",
-        "z": "af1e13a2798b2101",
-        "name": "",
+        "z": "d50d4fe4528fdecf",
+        "name": "Set Latency as Payload for graphing",
         "rules": [
             {
                 "t": "set",
@@ -594,37 +913,616 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 290,
-        "y": 400,
+        "x": 230,
+        "y": 740,
         "wires": [
             [
-                "125449c3b7842986"
+                "8f2d9753580b8c86",
+                "82f6584b743f9f50"
             ]
         ]
     },
     {
-        "id": "510b2c8bf11781b6",
-        "type": "counter",
-        "z": "af1e13a2798b2101",
-        "name": "",
-        "init": "0",
-        "step": "1",
-        "lower": null,
-        "upper": null,
-        "mode": "increment",
-        "outputs": "1",
-        "x": 640,
+        "id": "7078f21e8ae8ef0c",
+        "type": "comment",
+        "z": "d4c99f8432f4320d",
+        "name": "Listen for Connect, Close, LWT messages",
+        "info": "",
+        "x": 230,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "687cc0b7218c5488",
+        "type": "mqtt in",
+        "z": "d4c99f8432f4320d",
+        "name": "Listen for Connect Messages",
+        "topic": "demo/sie/state/connected",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "3c9fafa.7dd6a5",
+        "nl": false,
+        "rap": false,
+        "rh": "0",
+        "inputs": 0,
+        "x": 180,
+        "y": 160,
+        "wires": [
+            [
+                "6de63db006ed2b9a",
+                "742e450ac8633af4"
+            ]
+        ]
+    },
+    {
+        "id": "c347ac0b5fc2204b",
+        "type": "file",
+        "z": "d4c99f8432f4320d",
+        "name": "Write Client State File",
+        "filename": "",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 860,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6de63db006ed2b9a",
+        "type": "template",
+        "z": "d4c99f8432f4320d",
+        "name": "Set Filename",
+        "field": "filename",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "/data/clientstate/{{payload}}",
+        "output": "str",
+        "x": 470,
+        "y": 160,
+        "wires": [
+            [
+                "c347ac0b5fc2204b"
+            ]
+        ]
+    },
+    {
+        "id": "775fdfe9c337dcf7",
+        "type": "mqtt in",
+        "z": "d4c99f8432f4320d",
+        "name": "Listen for Close Messages",
+        "topic": "demo/sie/state/closed",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "3c9fafa.7dd6a5",
+        "nl": false,
+        "rap": false,
+        "rh": "0",
+        "inputs": 0,
+        "x": 170,
         "y": 220,
         "wires": [
             [
-                "ee4affe7f245e50d"
+                "112fadba78f13fc9",
+                "742e450ac8633af4"
             ]
         ]
     },
     {
-        "id": "ee4affe7f245e50d",
+        "id": "112fadba78f13fc9",
+        "type": "template",
+        "z": "d4c99f8432f4320d",
+        "name": "Set Filename",
+        "field": "filename",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "/data/clientstate/{{payload}}",
+        "output": "str",
+        "x": 470,
+        "y": 220,
+        "wires": [
+            [
+                "4dd76a24c0cee365"
+            ]
+        ]
+    },
+    {
+        "id": "08d131a8d0596ef0",
+        "type": "mqtt in",
+        "z": "d4c99f8432f4320d",
+        "name": "Listen for lwt Messages",
+        "topic": "demo/sie/state/lwt",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "3c9fafa.7dd6a5",
+        "nl": false,
+        "rap": false,
+        "rh": "0",
+        "inputs": 0,
+        "x": 160,
+        "y": 280,
+        "wires": [
+            [
+                "112fadba78f13fc9",
+                "ab1b4883aecc4719",
+                "742e450ac8633af4"
+            ]
+        ]
+    },
+    {
+        "id": "4dd76a24c0cee365",
+        "type": "file",
+        "z": "d4c99f8432f4320d",
+        "name": "Delete Client State File",
+        "filename": "",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "delete",
+        "encoding": "none",
+        "x": 860,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "655dca9a651a965e",
+        "type": "file",
+        "z": "d4c99f8432f4320d",
+        "name": "Track LWT messages (Disconnect Monitor)",
+        "filename": "",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 930,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ab1b4883aecc4719",
+        "type": "template",
+        "z": "d4c99f8432f4320d",
+        "name": "Set Filename",
+        "field": "filename",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "/data/disconnects/{{payload}}",
+        "output": "str",
+        "x": 470,
+        "y": 280,
+        "wires": [
+            [
+                "655dca9a651a965e"
+            ]
+        ]
+    },
+    {
+        "id": "3868f26c0e70dbb4",
+        "type": "ui_button",
+        "z": "d4c99f8432f4320d",
+        "name": "",
+        "group": "b039f0e61c731c39",
+        "order": 8,
+        "width": 8,
+        "height": 1,
+        "passthru": false,
+        "label": "Refresh Client State",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "x": 160,
+        "y": 420,
+        "wires": [
+            [
+                "e4964ba1e436a89f"
+            ]
+        ]
+    },
+    {
+        "id": "4507e35c500307d1",
+        "type": "template",
+        "z": "d4c99f8432f4320d",
+        "name": "form JSON of Active Clients",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{\"title\":\"{{payload}}\",\"description\":\"Connected\",\"icon\":\"https://cdn1.iconfinder.com/data/icons/malware-and-threats/512/Botnet-01-512.png\"}",
+        "output": "json",
+        "x": 180,
+        "y": 540,
+        "wires": [
+            [
+                "5116513349bd2732"
+            ]
+        ]
+    },
+    {
+        "id": "5116513349bd2732",
+        "type": "join",
+        "z": "d4c99f8432f4320d",
+        "name": "Create Single Array of Active Clients",
+        "mode": "custom",
+        "build": "array",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "2",
+        "count": "",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 210,
+        "y": 600,
+        "wires": [
+            [
+                "87e89e9cf70369e3"
+            ]
+        ]
+    },
+    {
+        "id": "d98556722b9df178",
+        "type": "comment",
+        "z": "d4c99f8432f4320d",
+        "name": "Build Client State Table",
+        "info": "",
+        "x": 160,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "742e450ac8633af4",
         "type": "debug",
-        "z": "af1e13a2798b2101",
+        "z": "d4c99f8432f4320d",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "87e89e9cf70369e3",
+        "type": "ui_list",
+        "z": "d4c99f8432f4320d",
+        "group": "b039f0e61c731c39",
+        "name": "Client State Table",
+        "order": 1,
+        "width": 6,
+        "height": 14,
+        "lineType": "two",
+        "actionType": "click",
+        "allowHTML": false,
+        "outputs": 1,
+        "topic": "",
+        "x": 150,
+        "y": 660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e4964ba1e436a89f",
+        "type": "fs-file-lister",
+        "z": "d4c99f8432f4320d",
+        "name": "Build List of Active Clients",
+        "start": "/data/clientstate",
+        "pattern": "*player*",
+        "folders": "*",
+        "hidden": false,
+        "lstype": "files",
+        "path": false,
+        "single": false,
+        "depth": 0,
+        "stat": false,
+        "showWarnings": false,
+        "x": 180,
+        "y": 480,
+        "wires": [
+            [
+                "4507e35c500307d1"
+            ]
+        ]
+    },
+    {
+        "id": "019f40769961e42b",
+        "type": "inject",
+        "z": "d85318c42f0bd96a",
+        "name": "Simulated Lat/Lon Coordinates Every 10 seconds",
+        "props": [
+            {
+                "p": "payload.timestamp",
+                "v": "",
+                "vt": "date"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "payload.lat",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "p": "payload.lon",
+                "v": "2",
+                "vt": "num"
+            }
+        ],
+        "repeat": "10",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 270,
+        "y": 160,
+        "wires": [
+            [
+                "9a92694d2b2ad70d"
+            ]
+        ]
+    },
+    {
+        "id": "9a92694d2b2ad70d",
+        "type": "random",
+        "z": "d85318c42f0bd96a",
+        "name": "Generate Simulated Latitude",
+        "low": "44.85",
+        "high": "44.9",
+        "inte": "false",
+        "property": "payload.lat",
+        "x": 200,
+        "y": 220,
+        "wires": [
+            [
+                "46c321930bae2ff5"
+            ]
+        ]
+    },
+    {
+        "id": "46c321930bae2ff5",
+        "type": "random",
+        "z": "d85318c42f0bd96a",
+        "name": "Generate Simulated Longitude",
+        "low": "-85.2",
+        "high": "-85.3",
+        "inte": "false",
+        "property": "payload.lon",
+        "x": 210,
+        "y": 280,
+        "wires": [
+            [
+                "76c7970d0534361d"
+            ]
+        ]
+    },
+    {
+        "id": "5d0bc9fc7b98e520",
+        "type": "mqtt out",
+        "z": "d85318c42f0bd96a",
+        "name": "Publish lat, lon, and clientID to MQTT",
+        "topic": "demo/sie/location/feed",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3c9fafa.7dd6a5",
+        "x": 230,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "76c7970d0534361d",
+        "type": "change",
+        "z": "d85318c42f0bd96a",
+        "name": "Include ClientID in json ",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.name",
+                "pt": "msg",
+                "to": "CLIENTID",
+                "tot": "env",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 190,
+        "y": 340,
+        "wires": [
+            [
+                "5d0bc9fc7b98e520",
+                "ee9b8bd2e9d41231",
+                "63351a4f43d041b7",
+                "0eb3b31b577dd2ed"
+            ]
+        ]
+    },
+    {
+        "id": "63351a4f43d041b7",
+        "type": "debug",
+        "z": "d85318c42f0bd96a",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 550,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "1add6033320d43fe",
+        "type": "template",
+        "z": "d85318c42f0bd96a",
+        "name": "Set MQTT Topic to MGRS Location",
+        "field": "topic",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "demo/sie/location/mgrs/{{payload.mgrs}}",
+        "output": "str",
+        "x": 600,
+        "y": 360,
+        "wires": [
+            [
+                "dd29a273adce39d9",
+                "4499d880d2a8231c",
+                "1ccb0688f72dd013"
+            ]
+        ]
+    },
+    {
+        "id": "dd29a273adce39d9",
+        "type": "mqtt-in-dynamicsub",
+        "z": "d85318c42f0bd96a",
+        "name": "Subscribe to MGRS topic ",
+        "qos": "2",
+        "datatype": "auto",
+        "unsubscribe-after-first-msg-recv": true,
+        "debug-subscribe": false,
+        "broker": "3c9fafa.7dd6a5",
+        "x": 910,
+        "y": 360,
+        "wires": [
+            [
+                "51f94b1e09d22904"
+            ]
+        ]
+    },
+    {
+        "id": "51f94b1e09d22904",
+        "type": "debug",
+        "z": "d85318c42f0bd96a",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 970,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "4499d880d2a8231c",
+        "type": "debug",
+        "z": "d85318c42f0bd96a",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "58dce05962c0d247",
+        "type": "mqtt out",
+        "z": "d85318c42f0bd96a",
+        "name": "Publish Announcement to MGRS Topic ",
+        "topic": "",
+        "qos": "",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3c9fafa.7dd6a5",
+        "x": 620,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "1ccb0688f72dd013",
+        "type": "template",
+        "z": "d85318c42f0bd96a",
+        "name": "Set Announcement Message with ClientID",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{{payload.name}} is here...",
+        "output": "str",
+        "x": 630,
+        "y": 400,
+        "wires": [
+            [
+                "58dce05962c0d247"
+            ]
+        ]
+    },
+    {
+        "id": "5479f52d948e0a2c",
+        "type": "mqtt in",
+        "z": "d85318c42f0bd96a",
+        "name": "Listen on MQTT Location Feed",
+        "topic": "demo/sie/location/feed",
+        "qos": "2",
+        "datatype": "json",
+        "broker": "3c9fafa.7dd6a5",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 190,
+        "y": 560,
+        "wires": [
+            [
+                "534c26ebef1df241",
+                "4b4666bf44aeed78"
+            ]
+        ]
+    },
+    {
+        "id": "534c26ebef1df241",
+        "type": "debug",
+        "z": "d85318c42f0bd96a",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -634,59 +1532,56 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 950,
-        "y": 160,
+        "x": 510,
+        "y": 560,
         "wires": []
     },
     {
-        "id": "a29e78efbdfbde77",
-        "type": "change",
-        "z": "af1e13a2798b2101",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 280,
-        "y": 300,
-        "wires": [
-            []
-        ]
+        "id": "4b4666bf44aeed78",
+        "type": "ui_worldmap",
+        "z": "d85318c42f0bd96a",
+        "group": "f5ddb240fdbac253",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "Map Location of other players",
+        "lat": "44.9",
+        "lon": "-85.2",
+        "zoom": "10",
+        "layer": "OSMG",
+        "cluster": "",
+        "maxage": "",
+        "usermenu": "hide",
+        "layers": "hide",
+        "panit": "true",
+        "panlock": "false",
+        "zoomlock": "false",
+        "hiderightclick": "false",
+        "coords": "mgrs",
+        "showgrid": "false",
+        "allowFileDrop": "false",
+        "path": "/worldmap",
+        "overlist": "DR,CO,RA,DN,HM",
+        "maplist": "OSMG,OSMC,EsriC,EsriS,EsriT,EsriDG,UKOS",
+        "mapname": "",
+        "mapurl": "",
+        "mapopt": "",
+        "mapwms": false,
+        "x": 430,
+        "y": 660,
+        "wires": []
     },
     {
-        "id": "177de29b13203363",
-        "type": "change",
-        "z": "af1e13a2798b2101",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "reset",
-                "pt": "msg",
-                "to": "0",
-                "tot": "num"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 760,
-        "y": 120,
+        "id": "0eb3b31b577dd2ed",
+        "type": "mgrs",
+        "z": "d85318c42f0bd96a",
+        "name": "Convert Lat/Lon to MGRS",
+        "precision": "5",
+        "x": 550,
+        "y": 300,
         "wires": [
             [
-                "510b2c8bf11781b6"
+                "1add6033320d43fe"
             ]
         ]
     }
