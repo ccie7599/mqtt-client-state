@@ -1,18 +1,17 @@
-election-result-demo
+mqtt-workshop
 ======================
 
 ### About
 
-Source for a docker container for a node-red based MQTT Election result demo.
+Source for a docker container for a node-red based MQTT workshop.
 
-repo is synced with docker hub at brianapley/election-result-demo.
+repo is synced with docker hub at brianapley/mqtt-workshop.
 
-The publisher container can be found at brianapley/election-result-demo:publisher
 
 ## Launching via docker hub (example)
 
 ```
-docker run -it -p 1880:1880 -v nrdata:/data --name node-red-election-result brianapley/election-result-demo
+docker run -it -p 1880:1880 -v nrdata:/data --name mqtt-workshop brianapley/mqtt-workshop
 ```
 
 Once launched, UI can be accessed via http://host:1880/.
